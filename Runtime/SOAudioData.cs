@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Junya005.AudioSystem
+namespace Junya005.SoundEngine
 {
-    [CreateAssetMenu(fileName = "AudioData", menuName = "Plugins/Junya005/AudioData")]
+    [CreateAssetMenu(fileName = "AudioData", menuName = "Junya005/SoundEngine/AudioData")]
     public class SOAudioData : ScriptableObject
     {
         [Header("Set BGM AudioClip Here")]

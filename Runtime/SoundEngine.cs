@@ -1,22 +1,21 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Junya005.AudioSystem
+namespace Junya005.SoundEngine
 {
     [DefaultExecutionOrder(-1000)]
-    public class SoundManager : MonoBehaviour
+    public class SoundEngine : MonoBehaviour
     {
         #region Singleton
 
-        private static SoundManager instance;
-        public static SoundManager Instance
+        private static SoundEngine instance;
+        public static SoundEngine Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = (SoundManager)FindObjectOfType(typeof(SoundManager));
+                    instance = (SoundEngine)FindObjectOfType(typeof(SoundEngine));
                     if (instance == null)
                     {
                         SetupInstance();
@@ -28,12 +27,12 @@ namespace Junya005.AudioSystem
 
         private static void SetupInstance()
         {
-            instance = (SoundManager)FindObjectOfType(typeof(SoundManager));
+            instance = (SoundEngine)FindObjectOfType(typeof(SoundEngine));
             if (instance == null)
             {
                 GameObject gameObj = new GameObject();
-                gameObj.name = typeof(SoundManager).Name;
-                instance = gameObj.AddComponent<SoundManager>();
+                gameObj.name = typeof(SoundEngine).Name;
+                instance = gameObj.AddComponent<SoundEngine>();
                 DontDestroyOnLoad(gameObj);
             }
         }
@@ -42,13 +41,34 @@ namespace Junya005.AudioSystem
         {
             if (instance == null)
             {
-                instance = this as SoundManager;
+                instance = this as SoundEngine;
                 DontDestroyOnLoad(gameObject);
             }
             else
             {
                 Destroy(gameObject);
             }
+        }
+
+        #endregion
+
+        #region RuntimeInitialize
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void Initialize()
+        {
+            new GameObject("SoundEngine", typeof(SoundEngine));
+            SetupInstance();
+        }
+
+        private void Awake()
+        {
+            RemoveDuplicates();
+        }
+
+        private void Start()
+        {
+            InitializeAudio();
         }
 
         #endregion
@@ -206,22 +226,5 @@ namespace Junya005.AudioSystem
         }
 
         #endregion
-
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void Initialize()
-        {
-            new GameObject("SoundManager", typeof(SoundManager));
-            SetupInstance();
-        }
-
-        private void Awake()
-        {
-            RemoveDuplicates();
-        }
-
-        private void Start()
-        {
-            InitializeAudio();
-        }
     }
 }
