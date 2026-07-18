@@ -1,6 +1,6 @@
-# unity_soundmanager
+# com.junya005.soundengine
 
-Unityの音源再生機能のサンプルです。
+Unityの標準音声機能を拡張し、汎用的かつ簡易的なインターフェースを提供するパッケージです。
 
 ## バージョン履歴
 
@@ -10,7 +10,8 @@ Unityの音源再生機能のサンプルです。
 
 ## 使い方
 
-パッケージをインストールし、`Assets/Resources`にある`AudioData.asset`に使いたいBGMとSEを設定します。<br>
+パッケージをインストールし、`Assets/Resources`に`Create->Junya005/SoundEngine/AudioData.asset`を作成します。<br>
+作成した`AudioData.asset`を選択し、BGMとSEのリストに使用したいオーディオファイルを設定します。
 
 その後、コード内で以下の記述をすることで音源の再生をすることができます。
 
@@ -42,7 +43,7 @@ BGMの音量を設定できます。
 SoundManager.Instance.SetBgmVolume(0.5f);
 ```
 
-## テスト用音源の著作権について
+## サンプルに内包されている音源の著作権について
 
 こちらのリポジトリで公開されている音源は自由に使用して頂いて構いませんが、<br>
 著作権は当方に帰属いたします。
