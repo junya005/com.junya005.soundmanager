@@ -1,0 +1,14 @@
+{
+    "name": "com.junya005.soundengine",
+    "version": "1.0.0",
+    "displayName": "Sound Engine",
+    "description": "SoundEngine Plugin by Junya005",
+    "unity": "2022.3",
+    "samples": [
+        {
+            "displayName": "Test Scene and Audio",
+            "description": "Contains test scene and sample audio files.",
+            "path": "Samples~"
+        }
+    ]
+}
