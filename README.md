@@ -8,9 +8,20 @@ Unityの標準音声機能を拡張し、汎用的かつ簡易的なインター
 |----|----|
 |var.0.1.0|初期リリース|
 
+## インストール方法
+
+画面上部のメニューから`Window->PackageManager`を選択し、パッケージマネージャーウィンドウを表示します。<br>
+左上の`+`ボタンから`Add package from git URL...`を選択し、下記のURLを入力します。
+
+```
+https://github.com/junya005/com.junya005.soundengine
+```
+
+コンパイルが始まればインストールは成功です。
+
 ## 使い方
 
-パッケージをインストールし、`Assets/Resources`に`Create->Junya005/SoundEngine/AudioData.asset`を作成します。<br>
+`Assets/Resources`に`Create->Junya005/SoundEngine/AudioData.asset`を作成します。<br>
 作成した`AudioData.asset`を選択し、BGMとSEのリストに使用したいオーディオファイルを設定します。
 
 その後、コード内で以下の記述をすることで音源の再生をすることができます。
